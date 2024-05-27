@@ -1,0 +1,290 @@
+{
+  "id": "d072bc1b-c07f-443a-aeef-52ffadb7b0d5",
+  "prevId": "4b632815-2a02-481c-8902-b3a923f1aa1f",
+  "version": "6",
+  "dialect": "postgresql",
+  "tables": {
+    "public.fastify_tenant_control_applications": {
+      "name": "fastify_tenant_control_applications",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.fastify_tenant_control_roles": {
+      "name": "fastify_tenant_control_roles",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "applicationId": {
+          "name": "applicationId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "permissions": {
+          "name": "permissions",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "roles_id_index": {
+          "name": "roles_id_index",
+          "columns": [
+            "id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "fastify_tenant_control_roles_applicationId_fastify_tenant_control_applications_id_fk": {
+          "name": "fastify_tenant_control_roles_applicationId_fastify_tenant_control_applications_id_fk",
+          "tableFrom": "fastify_tenant_control_roles",
+          "tableTo": "fastify_tenant_control_applications",
+          "columnsFrom": [
+            "applicationId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fastify_tenant_control_roles_name_applicationId_pk": {
+          "name": "fastify_tenant_control_roles_name_applicationId_pk",
+          "columns": [
+            "name",
+            "applicationId"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "public.fastify_tenant_control_users": {
+      "name": "fastify_tenant_control_users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "applicationId": {
+          "name": "applicationId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "password": {
+          "name": "password",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "users_id_index": {
+          "name": "users_id_index",
+          "columns": [
+            "id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "fastify_tenant_control_users_applicationId_fastify_tenant_control_applications_id_fk": {
+          "name": "fastify_tenant_control_users_applicationId_fastify_tenant_control_applications_id_fk",
+          "tableFrom": "fastify_tenant_control_users",
+          "tableTo": "fastify_tenant_control_applications",
+          "columnsFrom": [
+            "applicationId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fastify_tenant_control_users_email_applicationId_pk": {
+          "name": "fastify_tenant_control_users_email_applicationId_pk",
+          "columns": [
+            "email",
+            "applicationId"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "public.fastify_tenant_control_usersToRoles": {
+      "name": "fastify_tenant_control_usersToRoles",
+      "schema": "",
+      "columns": {
+        "applicationId": {
+          "name": "applicationId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "roleId": {
+          "name": "roleId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "userId": {
+          "name": "userId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fastify_tenant_control_usersToRoles_applicationId_fastify_tenant_control_applications_id_fk": {
+          "name": "fastify_tenant_control_usersToRoles_applicationId_fastify_tenant_control_applications_id_fk",
+          "tableFrom": "fastify_tenant_control_usersToRoles",
+          "tableTo": "fastify_tenant_control_applications",
+          "columnsFrom": [
+            "applicationId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "fastify_tenant_control_usersToRoles_roleId_fastify_tenant_control_roles_id_fk": {
+          "name": "fastify_tenant_control_usersToRoles_roleId_fastify_tenant_control_roles_id_fk",
+          "tableFrom": "fastify_tenant_control_usersToRoles",
+          "tableTo": "fastify_tenant_control_roles",
+          "columnsFrom": [
+            "roleId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "fastify_tenant_control_usersToRoles_userId_fastify_tenant_control_users_id_fk": {
+          "name": "fastify_tenant_control_usersToRoles_userId_fastify_tenant_control_users_id_fk",
+          "tableFrom": "fastify_tenant_control_usersToRoles",
+          "tableTo": "fastify_tenant_control_users",
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fastify_tenant_control_usersToRoles_applicationId_roleId_userId_pk": {
+          "name": "fastify_tenant_control_usersToRoles_applicationId_roleId_userId_pk",
+          "columns": [
+            "applicationId",
+            "roleId",
+            "userId"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

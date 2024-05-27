@@ -1,0 +1,11 @@
+ALTER TABLE "fastify_tenant_control_applications" ALTER COLUMN "id" SET DATA TYPE varchar;
+ALTER TABLE "fastify_tenant_control_applications" ALTER COLUMN "id" DROP DEFAULT;
+ALTER TABLE "fastify_tenant_control_roles" ALTER COLUMN "id" SET DATA TYPE varchar;
+ALTER TABLE "fastify_tenant_control_roles" ALTER COLUMN "id" DROP DEFAULT;
+ALTER TABLE "fastify_tenant_control_roles" ALTER COLUMN "applicationId" SET DATA TYPE varchar;
+ALTER TABLE "fastify_tenant_control_users" ALTER COLUMN "id" SET DATA TYPE varchar;
+ALTER TABLE "fastify_tenant_control_users" ALTER COLUMN "id" DROP DEFAULT;
+ALTER TABLE "fastify_tenant_control_users" ALTER COLUMN "applicationId" SET DATA TYPE varchar;
+ALTER TABLE "fastify_tenant_control_usersToRoles" ALTER COLUMN "applicationId" SET DATA TYPE varchar;
+ALTER TABLE "fastify_tenant_control_usersToRoles" ALTER COLUMN "roleId" SET DATA TYPE varchar;
+ALTER TABLE "fastify_tenant_control_usersToRoles" ALTER COLUMN "userId" SET DATA TYPE varchar;
