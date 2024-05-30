@@ -14,5 +14,5 @@ export default defineConfig({
     url: DATABASE_CONNECTION,
   },
   breakpoints: false,
-  tablesFilter: ['fastify_tenant_control_*'],
+  tablesFilter: ['ftc_*'],
 });

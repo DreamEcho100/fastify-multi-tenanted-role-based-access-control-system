@@ -6,4 +6,4 @@ import { pgTableCreator } from 'drizzle-orm/pg-core';
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const pgTable = pgTableCreator((name) => `fastify_tenant_control_${name}`);
+export const pgTable = pgTableCreator((name) => `ftc_${name}`);

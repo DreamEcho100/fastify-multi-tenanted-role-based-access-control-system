@@ -11,3 +11,5 @@ export async function handleMigration() {
   // Don't forget to close the pool, otherwise the script will hang
   await pool.end();
 }
+
+await handleMigration();

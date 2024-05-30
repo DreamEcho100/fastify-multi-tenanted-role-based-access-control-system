@@ -7,8 +7,10 @@
     "lint:fix": "biome format --write . && biome check --apply .",
     "biome:migrate-prettier": "biome migrate prettier --write;",
     "biome:migrate-eslint": "biome migrate eslint --write --include-inspired;",
-    "db:generate-migrate": "drizzle-kit generate",
-    "db:push": "drizzle-kit push"
+    "db:generate-migration": "drizzle-kit generate",
+    "db:migrate": "bun run ./migrate.js",
+    "db:push": "drizzle-kit push",
+    "db:pull: ": "drizzle-kit introspect"
   },
   "dependencies": {
     "argon2": "^0.40.3",
