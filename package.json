@@ -1,7 +1,13 @@
 {
   "name": "fastify-tenant-control",
   "type": "module",
+  "main": "./src/main.js",
+  "bin": "./src/main.js",
   "scripts": {
+    "build": "bun build ./src/main.js --outdir ./build --target bun --format esm --splitting --minify",
+    "build:exe": "bun build ./src/main.js --minify --outfile ./bin/main --compile",
+    "start": "bun run ./build/main.js",
+    "start:exe": "./bin/main",
     "dev": "bun --watch ./src/main.js",
     "lint": "biome format . && biome check .",
     "lint:fix": "biome format --write . && biome check --apply .",

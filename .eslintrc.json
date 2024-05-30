@@ -1,7 +1,7 @@
 {
   "extends": ["plugin:unicorn/recommended"],
   "plugins": ["unicorn"],
-  "ignore_patterns": ["dist/**"],
+  "ignore_patterns": ["dist/**", "build/**"],
   "globals": {
     "Global1": "readonly"
   },
