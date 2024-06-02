@@ -1,10 +1,6 @@
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify';
 import { createContext } from './context.js';
 import { appRouter } from './router/index.js';
-import { fastifyTRPCOpenApiPlugin } from 'trpc-openapi';
-import { openApiDocument } from '../openapi/index.js';
-import fastifySwagger from '@fastify/swagger';
-import fastifySwaggerUI from '@fastify/swagger-ui';
 
 const trpcOptions =
   /** @satisfies {import('@trpc/server/adapters/fastify').FastifyTRPCPluginOptions<import('./router/index.js').AppRouter>['trpcOptions']} */ ({

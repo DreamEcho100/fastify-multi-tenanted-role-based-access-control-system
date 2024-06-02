@@ -19,7 +19,7 @@ export async function registerOpenApi(app) {
     basePath: '/api',
     router: appRouter,
     createContext: createContext,
-    maxBodySize: 5000,
+    maxBodySize: 100,
     /** @param {{ path: string; error: Error }} param0  */
     onError({ path, error }) {
       // report to error monitoring
