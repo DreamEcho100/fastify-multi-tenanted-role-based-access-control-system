@@ -19,6 +19,10 @@
     "db:pull: ": "drizzle-kit introspect"
   },
   "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@fastify/swagger": "^8.14.0",
+    "@fastify/swagger-ui": "^3.0.0",
+    "@trpc/server": "^10.45.2",
     "argon2": "^0.40.3",
     "drizzle-orm": "^0.30.10",
     "eslint": "^9.3.0",
@@ -31,12 +35,16 @@
     "pg": "^8.11.5",
     "pino": "^9.1.0",
     "pino-pretty": "^11.1.0",
+    "trpc-openapi": "^1.2.0",
+    "typia": "^6.0.4",
     "zennv": "^0.1.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.3",
+    "@types/cors": "^2.8.17",
     "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.13.0",
     "@types/pg": "^8.11.6",
     "drizzle-kit": "^0.21.4",
     "tsx": "^4.11.0",

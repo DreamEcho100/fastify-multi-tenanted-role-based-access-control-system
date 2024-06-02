@@ -1,0 +1,22 @@
+{
+  "name": "typia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "ts-patch install && typia patch",
+    "generate": "npx typia generate --input src/templates --output src/generated --project tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typia": "^6.0.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "ts-patch": "^3.1.2",
+    "typescript": "5.4.2"
+  }
+}

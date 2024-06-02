@@ -12,10 +12,9 @@ async function main() {
   // app.log.info('Migration completed');
 
   await app.listen({ port: env.PORT, host: env.HOST });
-
   app.log.info(`Server is running at http://localhost:${env.PORT}`);
-
-  app.log.debug('Test querying the database');
+  app.swagger();
+  app.log.info('Swagger UI: http://localhost:8000/docs');
 }
 
 await main();
