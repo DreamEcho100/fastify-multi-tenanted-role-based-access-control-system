@@ -9,6 +9,7 @@ export async function gracefulShutdown(app, reason) {
   await app.close();
 
   app.log.info({ signal: reason }, `Graceful shutdown completed. Exiting process.`);
+  process.exit(0);
 }
 
 /** @param {import("./server.js").FastifyApp} app */
